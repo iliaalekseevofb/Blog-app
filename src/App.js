@@ -23,12 +23,14 @@ const App = () => {
     <BrowserRouter>
       <nav>
         <Link to='/'>Home</Link>
-        <Link to='/createpost'>Create post</Link>
         {!isAuth 
           ? <Link to='/login'>Login</Link> 
-          : <button onClick={signUserOut}>
-              Log out
-            </button>
+          : (
+            <>
+              <Link to='/createpost'>Create post</Link>
+              <button onClick={signUserOut}>Log out</button>
+            </>
+          )
         }
       </nav>
       <Routes>
